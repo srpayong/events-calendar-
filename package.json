@@ -1,0 +1,27 @@
+{
+  "name": "sport-events-calendar",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.69.5",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.17",
+    "eslint-config-upleveled": "^7.3.4",
+    "stylelint": "^16.0.2",
+    "stylelint-config-upleveled": "^1.0.4",
+    "typescript": "^5.3.3"
+  }
+}
