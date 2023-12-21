@@ -1,0 +1,54 @@
+.calendarContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.reactCalendar {
+  width: 100%;
+  max-width: 900px; /* Adjust the width as needed */
+  border-collapse: collapse; /* For older browsers */
+}
+
+/* Style for the calendar tiles */
+.reactCalendar .react-calendar__tile {
+  border: 1px solid #ddd; /* Adds border to each tile */
+  padding: 10px 5px; /* Adjust padding as needed */
+  text-align: center; /* Center the text */
+  height: 100px; /* Fixed height for each tile */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Style for the events listed in each tile */
+.reactCalendar .react-calendar__tile ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.75em; /* Smaller font size for events */
+  line-height: 1.2em; /* Adjust line height for better readability */
+  text-align: left; /* Align text to the left */
+}
+
+.reactCalendar .react-calendar__tile ul li {
+  margin-bottom: 4px; /* Space out the events */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Style for the calendar navigation */
+.reactCalendar .react-calendar__navigation {
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+/* Style for the weekdays */
+.reactCalendar .react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd; /* Separates weekdays from the dates */
+}
+
+/* Style for the weekday abbreviations */
+.reactCalendar .react-calendar__month-view__weekdays abbr {
+  text-decoration: none; /* Removes underline */
+}
