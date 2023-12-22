@@ -6,7 +6,6 @@ import ReactCalendar from 'react-calendar';
 import styles from './page.module.css';
 
 export default function Calendar({ events }) {
-  console.log('Events in Calendar: ', events);
   const router = useRouter();
 
   const handleEventClick = (eventId) => {

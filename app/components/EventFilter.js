@@ -19,7 +19,7 @@ export default function EventFilter({ setFilteredEvents, allEvents }) {
         (event.homeTeam && event.homeTeam.name === filterValue) ||
         (event.awayTeam && event.awayTeam.name === filterValue),
     );
-    console.log('Filtered events:', filtered);
+
     setFilteredEvents(filtered);
   };
 

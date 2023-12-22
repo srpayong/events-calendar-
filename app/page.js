@@ -19,10 +19,6 @@ export default function Home() {
       });
   }, []);
 
-  useEffect(() => {
-    console.log('Filtered Events after update: ', filteredEvents);
-  }, [filteredEvents]);
-
   const handleAddEvent = (newEvent) => {
     const updatedEvents = [...allEvents, newEvent];
     setAllEvents(updatedEvents);
