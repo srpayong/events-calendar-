@@ -1,9 +1,8 @@
 'use client';
-import Link from 'next/link';
-// app/page.js// app/page.js or pages/index.js (depending on where your Home component is located)
+
 import React, { useEffect, useState } from 'react';
-import AddEvent from './addEvent/page.js'; // Import AddEvent component
-import Calendar from './Calendar/page.js';
+import AddEvent from './addEvent/page.js';
+import Calendar from './Calendar/Calendar.js';
 import EventFilter from './components/EventFilter';
 import NavBar from './components/NavBar';
 
@@ -20,6 +19,10 @@ export default function Home() {
       });
   }, []);
 
+  useEffect(() => {
+    console.log('Filtered Events after update: ', filteredEvents);
+  }, [filteredEvents]);
+
   const handleAddEvent = (newEvent) => {
     const updatedEvents = [...allEvents, newEvent];
     setAllEvents(updatedEvents);
@@ -34,7 +37,7 @@ export default function Home() {
         setFilteredEvents={setFilteredEvents}
         allEvents={allEvents}
       />
-      <Calendar events={filteredEvents} />
+      <Calendar key={filteredEvents.length} events={filteredEvents} />
       <AddEvent onAddEvent={handleAddEvent} />
     </div>
   );

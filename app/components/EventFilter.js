@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function EventFilter({ setFilteredEvents, allEvents }) {
-  // Safely extract team names, considering potential null values
   const teamNames = [
     ...new Set(
       allEvents
@@ -9,7 +8,7 @@ export default function EventFilter({ setFilteredEvents, allEvents }) {
           event.homeTeam ? event.homeTeam.name : null,
           event.awayTeam ? event.awayTeam.name : null,
         ])
-        .filter((name) => name !== null), // Filter out null values
+        .filter((name) => name !== null),
     ),
   ];
 
@@ -20,7 +19,6 @@ export default function EventFilter({ setFilteredEvents, allEvents }) {
         (event.homeTeam && event.homeTeam.name === filterValue) ||
         (event.awayTeam && event.awayTeam.name === filterValue),
     );
-    console.log('Filter value:', filterValue);
     console.log('Filtered events:', filtered);
     setFilteredEvents(filtered);
   };

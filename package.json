@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "date-fns": "^3.0.6",
     "next": "14.0.4",
     "react": "^18",
     "react-calendar": "^4.7.0",
