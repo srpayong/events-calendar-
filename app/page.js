@@ -5,6 +5,7 @@ import AddEvent from './addEvent/page.js';
 import Calendar from './Calendar/Calendar.js';
 import EventFilter from './components/EventFilter';
 import NavBar from './components/NavBar';
+import styles from './page.module.scss';
 
 export default function Home() {
   const [allEvents, setAllEvents] = useState([]);
@@ -27,14 +28,26 @@ export default function Home() {
 
   return (
     <div>
-      <NavBar />
-      <h1>Sports Events Calendar</h1>
-      <EventFilter
-        setFilteredEvents={setFilteredEvents}
-        allEvents={allEvents}
-      />
-      <Calendar key={filteredEvents.length} events={filteredEvents} />
-      <AddEvent onAddEvent={handleAddEvent} />
+      <div className={styles.navBar}>
+        <NavBar />
+      </div>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.h1}>MATCH SCHEDULES</h1>
+      </div>
+      <div className={styles.mainContainer}>
+        <div>
+          <EventFilter
+            setFilteredEvents={setFilteredEvents}
+            allEvents={allEvents}
+          />
+          <div className={styles.eventForm}>
+            <AddEvent onAddEvent={handleAddEvent} />
+          </div>
+        </div>
+        <div className={styles.Calendar}>
+          <Calendar key={filteredEvents.length} events={filteredEvents} />
+        </div>
+      </div>
     </div>
   );
 }

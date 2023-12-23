@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './eventFilter.module.scss';
 
 export default function EventFilter({ setFilteredEvents, allEvents }) {
   const teamNames = [
@@ -24,8 +25,8 @@ export default function EventFilter({ setFilteredEvents, allEvents }) {
   };
 
   return (
-    <select onChange={handleFilterChange}>
-      <option value="">Select a team</option>
+    <select onChange={handleFilterChange} className={styles.select}>
+      <option value="">Select Team</option>
       {teamNames.map((name) => (
         <option key={`team-${name}`} value={name}>
           {name}

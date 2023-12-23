@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import sportData from '../../../public/sportData.json';
+import styles from './eventDetail.module.scss';
 
 export default function ExpandDetails({ params }) {
   const router = useRouter();
@@ -19,7 +20,21 @@ export default function ExpandDetails({ params }) {
     <div>
       {eventDetail ? (
         <>
-          <div>
+          <div className={styles.teamContainer}>
+            <div className={styles.teamCard}>
+              <h2>{eventDetail.homeTeam?.name}</h2>
+              <p>Official Name: {eventDetail.homeTeam?.officialName}</p>
+              <p>Abbreviation: {eventDetail.homeTeam?.abbreviation}</p>
+              <p>Country Code: {eventDetail.homeTeam?.teamCountryCode}</p>
+            </div>
+            <div className={styles.teamCard}>
+              <h2>{eventDetail.awayTeam?.name}</h2>
+              <p>Official Name: {eventDetail.awayTeam?.officialName}</p>
+              <p>Abbreviation: {eventDetail.awayTeam?.abbreviation}</p>
+              <p>Country Code: {eventDetail.awayTeam?.teamCountryCode}</p>
+            </div>
+          </div>
+          <div className={styles.commonInfo}>
             <h1>
               {eventDetail.homeTeam?.name} vs {eventDetail.awayTeam?.name}
             </h1>
@@ -31,28 +46,15 @@ export default function ExpandDetails({ params }) {
               {eventDetail.result?.awayGoals}
             </p>
             <p>Winner: {eventDetail.result?.winner || 'Not yet decided'}</p>
-          </div>
-          <div>
-            <p>Home Team Official Name: {eventDetail.homeTeam?.officialName}</p>
-            <p>Home Team Abbreviation: {eventDetail.homeTeam?.abbreviation}</p>
-            <p>
-              Home Team Country Code: {eventDetail.homeTeam?.teamCountryCode}
-            </p>
-            <p>Away Team Official Name: {eventDetail.awayTeam?.officialName}</p>
-            <p>Away Team Abbreviation: {eventDetail.awayTeam?.abbreviation}</p>
-            <p>
-              Away Team Country Code: {eventDetail.awayTeam?.teamCountryCode}
-            </p>
-            <p>Winner ID: {eventDetail.result?.winnerId}</p>
-          </div>
-          <div>
             <p>Season: {eventDetail.season}</p>
             <p>Status: {eventDetail.status}</p>
             <p>Origin Competition: {eventDetail.originCompetitionName}</p>
             <p>Stage: {eventDetail.stage?.name}</p>
             <p>Group: {eventDetail.group}</p>
           </div>
-          <button onClick={handleGoBack}>Go Back</button>
+          <button className={styles.goBackButton} onClick={handleGoBack}>
+            Go Back
+          </button>
         </>
       ) : (
         <div>Loading event details...</div>

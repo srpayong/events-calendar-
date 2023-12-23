@@ -3,7 +3,7 @@ import { isSameDay } from 'date-fns';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import ReactCalendar from 'react-calendar';
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 export default function Calendar({ events }) {
   const router = useRouter();
@@ -36,6 +36,7 @@ export default function Calendar({ events }) {
               tabIndex="0"
             >
               {event.homeTeam?.name || 'Unknown Team'} vs
+              <br />
               {event.awayTeam?.name || 'Unknown Team'} - {event.timeVenueUTC}
             </div>
           ))}

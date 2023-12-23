@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import styles from './addEvent.module.scss';
 
 export default function AddEvent({ onAddEvent }) {
   const router = useRouter();
@@ -33,57 +34,66 @@ export default function AddEvent({ onAddEvent }) {
     router.push('/');
   };
 
-  const handleGoBack = () => {
-    router.back();
-  };
-
   return (
     <div>
-      <h1>Add Event</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="homeTeam">Home Team:</label>
+      <h1 className={styles.h1}>Create An Event</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.inputGroup}>
+          <label htmlFor="homeTeam" className={styles.label}>
+            Home Team:
+          </label>
           <input
             type="text"
             id="homeTeam"
             name="homeTeam"
             value={formData.homeTeam}
             onChange={handleChange}
+            className={styles.input}
           />
         </div>
-        <div>
-          <label htmlFor="awayTeam">Away Team:</label>
+        <div className={styles.inputGroup}>
+          <label htmlFor="awayTeam" className={styles.label}>
+            Away Team:
+          </label>
           <input
             type="text"
             id="awayTeam"
             name="awayTeam"
             value={formData.awayTeam}
             onChange={handleChange}
+            className={styles.input}
           />
         </div>
-        <div>
-          <label htmlFor="dateVenue">Date:</label>
+        <div className={styles.inputGroup}>
+          <label htmlFor="dateVenue" className={styles.label}>
+            Date:
+          </label>
           <input
             type="date"
             id="dateVenue"
             name="dateVenue"
             value={formData.dateVenue}
             onChange={handleChange}
+            className={styles.input}
           />
         </div>
-        <div>
-          <label htmlFor="timeVenueUTC">Time (UTC):</label>
+        <div className={styles.inputGroup}>
+          <label htmlFor="timeVenueUTC" className={styles.label}>
+            Time (UTC):
+          </label>
           <input
             type="time"
             id="timeVenueUTC"
             name="timeVenueUTC"
             value={formData.timeVenueUTC}
             onChange={handleChange}
+            className={styles.input}
           />
         </div>
-        <button type="submit">Add Event</button>
+        <button type="submit" className={styles.button}>
+          Add Event
+        </button>
       </form>
-      <button onClick={handleGoBack}>Go Back</button>
     </div>
   );
 }
