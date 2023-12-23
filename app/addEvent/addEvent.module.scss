@@ -44,3 +44,26 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
+
+@media screen and (max-width: 600px) {
+  .h1 {
+    font-size: 15px;
+  }
+
+  .form {
+    max-width: auto;
+    padding: 0 10px;
+  }
+
+  .input,
+  .button {
+    padding: 10px;
+  }
+
+  .button {
+    font-size: 14px;
+  }
+  .formGroup {
+    margin-bottom: 10px;
+  }
+}

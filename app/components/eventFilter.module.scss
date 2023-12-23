@@ -17,3 +17,12 @@
   outline: none;
   border-color: #555;
 }
+
+@media screen and (max-width: 600px) {
+  .select {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.4rem;
+    margin-left: 0;
+    width: 100%;
+  }
+}
