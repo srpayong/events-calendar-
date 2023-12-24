@@ -13,6 +13,8 @@
   opacity: 0.7;
   border-radius: 10px;
   margin: 0 auto;
+  background-color: rgb(168, 167, 171);
+  color: black;
 }
 
 .reactCalendar .react-calendar__tile {
@@ -41,6 +43,7 @@
   font-size: 0.75em;
   line-height: 1.2em;
   text-align: left;
+  color: white;
 }
 
 .reactCalendar .react-calendar__tile ul li {
@@ -48,6 +51,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: white;
 }
 
 .reactCalendar .react-calendar__navigation,

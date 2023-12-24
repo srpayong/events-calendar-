@@ -46,14 +46,21 @@
 .goBackButton {
   position: absolute;
   top: 20px;
+  background: none;
   right: 20px;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  border: none;
+  padding: 5px 10px;
   border-radius: 5px;
+  color: black;
+  border: 5px;
+
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: whitesmoke;
+  box-shadow: 0 5px 4px #ffffff4d;
+}
+
+.backIcon {
+  width: 32px;
+  height: 32px;
 }
 
 @media screen and (max-width: 600px) {
@@ -79,5 +86,13 @@
     position: static;
     margin: 20px auto;
     display: block;
+    background: none;
+    font-size: 32px;
+    color: white;
+  }
+  .backIcon {
+    background: none;
+    width: 32px;
+    height: 32px;
   }
 }

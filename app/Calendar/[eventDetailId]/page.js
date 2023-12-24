@@ -1,5 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
+import { IoArrowBackCircleOutline } from 'react-icons/io5';
 import sportData from '../../../public/sportData.json';
 import styles from './eventDetail.module.scss';
 
@@ -53,7 +54,7 @@ export default function ExpandDetails({ params }) {
             <p>Group: {eventDetail.group}</p>
           </div>
           <button className={styles.goBackButton} onClick={handleGoBack}>
-            Go Back
+            <IoArrowBackCircleOutline className={styles.backIcon} />
           </button>
         </>
       ) : (
