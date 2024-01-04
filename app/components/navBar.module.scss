@@ -1,0 +1,18 @@
+.navBar {
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+
+  a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+
+    &:hover {
+      color: gray;
+      text-decoration: underline;
+    }
+  }
+}
