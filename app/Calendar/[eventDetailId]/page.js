@@ -11,7 +11,7 @@ export default function ExpandDetails({ params }) {
   );
 
   if (!eventDetail) {
-    return <div>Event not found in data</div>;
+    return <div>Event not found in data provided</div>;
   }
   const handleGoBack = () => {
     router.back();

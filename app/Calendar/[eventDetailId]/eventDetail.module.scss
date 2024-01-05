@@ -16,7 +16,7 @@
   color: white;
   padding: 20px;
   border-radius: 10px;
-  background-color: #333;
+  background-color: #120196;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
@@ -31,7 +31,7 @@
   padding: 10px;
   border-radius: 10px;
   color: white;
-  background: rgb(14, 35, 87);
+  background-color: #261c74;
   width: 500px;
   height: 460px;
   margin: 0 auto;
@@ -47,14 +47,13 @@
   position: absolute;
   top: 20px;
   background: none;
+  background-color: red;
   right: 20px;
   padding: 5px 10px;
   border-radius: 5px;
-  color: black;
+  color: rgb(255, 255, 255);
   border: 5px;
-
   cursor: pointer;
-  background-color: whitesmoke;
   box-shadow: 0 5px 4px #ffffff4d;
 }
 
@@ -72,12 +71,12 @@
 
   .teamCard {
     flex-basis: 100%;
-    width: 85%;
+    width: 80%;
     margin-bottom: 20px;
   }
 
   .commonInfo {
-    width: 85%;
+    width: 80%;
     height: auto;
     padding: 20px;
   }
@@ -86,7 +85,7 @@
     position: static;
     margin: 20px auto;
     display: block;
-    background: none;
+    background-color: red;
     font-size: 32px;
     color: white;
   }

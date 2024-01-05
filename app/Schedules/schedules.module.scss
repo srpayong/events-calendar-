@@ -1,28 +1,126 @@
 .schedulesPage {
   .checkboxContainer {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  .cardsContainer {
-    display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: center;
     justify-content: center;
 
-    .card {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      width: 250px;
-      background-color: #f9f9f9;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    label {
       display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      input[type='checkbox'] {
+        margin-right: 5px;
+      }
+    }
+  }
+  .cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 50px;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .card {
+    margin-top: 20px;
+    background: #120196;
+    border: 1px solid #ffffff;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: all 0.3s ease;
+    height: 400px;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h3,
+    p {
+      margin: 0;
+      padding: 2px;
+      font-size: 0.9rem;
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+    h3 {
+      color: #f50000;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+  }
+  .goBackButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .goBackButton {
+    background-color: #ff0000;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #0056b3;
+      color: white;
+    }
+  }
+  @media (max-width: 375px) {
+    .checkboxContainer {
       flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      margin: 5px auto;
+      width: 80%;
+    }
+
+    .cardsContainer {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      height: auto;
+      padding: 10px;
+
+      h3,
+      p {
+        font-size: 0.8rem;
+      }
+
+      h3 {
+        margin-bottom: 5px;
+      }
+    }
+
+    .goBackButton {
+      font-size: 16px;
+      padding: 8px 8px;
+      margin: 5px;
     }
   }
 }

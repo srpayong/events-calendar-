@@ -1,8 +1,11 @@
 'use client';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import { IoArrowBackCircleOutline } from 'react-icons/io5';
 import styles from './schedules.module.scss';
 
 export default function SchedulesPage() {
+  const router = useRouter();
   const [allEvents, setAllEvents] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [checkedTeams, setCheckedTeams] = useState({});
@@ -12,9 +15,7 @@ export default function SchedulesPage() {
       .then((response) => response.json())
       .then((data) => {
         setAllEvents(data.data);
-        setFilteredEvents(data.data); // Initialize with all events
-
-        // Initialize checkbox state
+        setFilteredEvents(data.data);
         const teamNames = new Set(
           data.data.flatMap((event) =>
             [event.homeTeam?.name, event.awayTeam?.name].filter((name) => name),
@@ -49,6 +50,10 @@ export default function SchedulesPage() {
     setFilteredEvents(activeTeamNames.length > 0 ? filtered : allEvents);
   };
 
+  const handleGoBack = () => {
+    router.back();
+  };
+
   return (
     <div className={styles.schedulesPage}>
       <div className={styles.checkboxContainer}>
@@ -63,10 +68,10 @@ export default function SchedulesPage() {
           </label>
         ))}
       </div>
-      <div>
+      <div className={styles.cardsContainer}>
         {filteredEvents.length > 0 ? (
           filteredEvents.map((event) => (
-            <div key={event.id} className={styles.card}>
+            <div key={`event-${event.id}`} className={styles.card}>
               <h3>
                 {event.homeTeam?.name} vs {event.awayTeam?.name}
               </h3>
@@ -81,12 +86,17 @@ export default function SchedulesPage() {
               <p>Home Goals: {event.result?.homeGoals}</p>
               <p>Away Goals: {event.result?.awayGoals}</p>
               <p>Winner: {event.result?.winner || 'TBD'}</p>
-              {/* You can add more details as needed */}
             </div>
           ))
         ) : (
           <p>No events to display.</p>
         )}
+      </div>
+      <div className={styles.goBackButtonContainer}>
+        <button className={styles.goBackButton} onClick={handleGoBack}>
+          <IoArrowBackCircleOutline />
+          Go back
+        </button>
       </div>
     </div>
   );
