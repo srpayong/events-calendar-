@@ -2,6 +2,26 @@
 
 ###
 
+<p align="left">A dynamic web application designed to display, add, and manage sport events in a calendar format. </p>
+
+###
+
+<h2 align="left">Features</h2>
+
+<p align="left">
+  - A comprehensive view of all sports events, with indicators or brief details for each event on the calendar. <br />
+  - Clicking on an event in the calendar view opens a detailed page with complete information about the event. <br />
+  - Users can add new sport events in real-time, enhancing the app's interactivity. <br />
+  - Fully responsive, ensuring a seamless user experience across various device sizes. <br />
+  - Includes essential navigation to switch between the calendar overview and the event addition page. <br />
+  - Users can filter events to display matches and details specific to a chosen team. <br />
+
+</p>
+
+
+
+###
+
 <h2 align="left">Technologies Used:</h2>
 
 ###
@@ -20,12 +40,29 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" height="40" alt="nextjs logo"  />
 </div>
 
+
+
 ###
 
-<h2 align="left">Screenshots</h2>
 
 <img src="./public/readmephotos/photo1.png" height="200" width="400">
 <img src="./public/readmephotos/photo2.png" height="200" width="400">
-<img src="./public/readmephotos/photo3.png" height="200" width="400">
+<img src="./public/readmephotos/photo3.png" height="200" width="200">
+
+###
+
+
+
+
+
+<h2 align="left">Key Features</h2>
+
+
+###
+###
+
+<p align="center">
+<img src="./screenshot-mapmystride.png" height="500" width="700">
+</p>
 
 ###
