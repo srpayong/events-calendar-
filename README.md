@@ -50,19 +50,3 @@
 <img src="./public/readmephotos/photo3.png" height="200" width="200">
 
 ###
-
-
-
-
-
-<h2 align="left">Key Features</h2>
-
-
-###
-###
-
-<p align="center">
-<img src="./screenshot-mapmystride.png" height="500" width="700">
-</p>
-
-###
