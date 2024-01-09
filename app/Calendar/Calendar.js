@@ -3,7 +3,7 @@ import { isSameDay } from 'date-fns';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import ReactCalendar from 'react-calendar';
-import styles from './page.module.scss';
+import styles from '../../Styles/calendarPage.module.scss';
 
 export default function Calendar({ events }) {
   const router = useRouter();

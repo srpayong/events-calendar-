@@ -1,0 +1,127 @@
+.schedulesPage {
+  .checkboxContainer {
+    display: flex;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    justify-content: center;
+
+    label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      input[type='checkbox'] {
+        margin-right: 5px;
+      }
+    }
+  }
+  .cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 50px;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .card {
+    margin-top: 20px;
+    background-color: rgb(28, 7, 90);
+    border: 1px solid #ffffff;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: all 0.3s ease;
+    height: 400px;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h3,
+    p {
+      margin: 0;
+      padding: 2px;
+      font-size: 0.9rem;
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+    h3 {
+      color: #f50000;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+  }
+  .goBackButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .goBackButton {
+    position: absolute;
+    top: 20px;
+    background: none;
+    background-color: white;
+    right: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: red;
+    border: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 4px #ffffff4d;
+  }
+
+  .backIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  @media (max-width: 375px) {
+    .checkboxContainer {
+      flex-direction: column;
+      align-items: center;
+      padding: 5px;
+      margin: 5px auto;
+      width: 80%;
+    }
+
+    .cardsContainer {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      height: auto;
+      padding: 10px;
+
+      h3,
+      p {
+        font-size: 0.8rem;
+      }
+
+      h3 {
+        margin-bottom: 5px;
+      }
+    }
+
+    .goBackButton {
+      font-size: 6px;
+      padding: 2px 2px;
+      margin: 5px;
+    }
+  }
+}

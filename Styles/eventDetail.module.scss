@@ -1,0 +1,113 @@
+.teamContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-basis: calc(20% - 10px);
+  border: 1px solid white;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-style: bold;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+}
+
+.commonInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid white;
+
+  padding: 2px;
+  border-radius: 10px;
+  color: rgb(255, 0, 0);
+  background-color: rgb(28, 7, 90);
+  width: 420px;
+  height: 460px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 15px;
+  font-weight: bold;
+
+  h2 {
+    color: white;
+  }
+}
+
+.h1 {
+  color: white;
+  padding-top: 90px;
+  font-size: 2rem;
+}
+
+.goBackButton {
+  position: absolute;
+  top: 20px;
+  background: none;
+  background-color: white;
+  right: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: red;
+  border: 5px;
+  cursor: pointer;
+  box-shadow: 0 5px 4px #ffffff4d;
+}
+
+.backIcon {
+  width: 32px;
+  height: 32px;
+}
+
+@media screen and (max-width: 600px) {
+  .teamContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .teamCard {
+    flex-basis: 100%;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .h1 {
+    padding: 0;
+  }
+
+  .commonInfo {
+    width: 80%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .goBackButton {
+    position: static;
+    margin: 20px auto;
+    display: block;
+    background-color: white;
+    font-size: 32px;
+    color: red;
+  }
+  .backIcon {
+    background: none;
+    width: 32px;
+    height: 32px;
+  }
+}

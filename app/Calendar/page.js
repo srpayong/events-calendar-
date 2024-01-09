@@ -9,8 +9,16 @@ export default function CalendarPage() {
 
   useEffect(() => {
     fetch('/sportData.json')
-      .then((response) => response.json())
-      .then((data) => setEventsData(data.data));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => setEventsData(data.data))
+      .catch((error) => {
+        console.error('There was a problem fetching the events data:', error);
+      });
   }, []);
 
   return (

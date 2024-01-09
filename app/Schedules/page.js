@@ -2,53 +2,79 @@
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { IoArrowBackCircleOutline } from 'react-icons/io5';
-import styles from './schedules.module.scss';
+import styles from '../../Styles/schedules.module.scss';
 
 export default function SchedulesPage() {
   const router = useRouter();
   const [allEvents, setAllEvents] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [checkedTeams, setCheckedTeams] = useState({});
+  const [checkedStatuses, setCheckedStatuses] = useState({
+    Played: false,
+    Scheduled: false,
+  });
 
   useEffect(() => {
     fetch('/sportData.json')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         setAllEvents(data.data);
         setFilteredEvents(data.data);
+
         const teamNames = new Set(
           data.data.flatMap((event) =>
-            [event.homeTeam?.name, event.awayTeam?.name].filter((name) => name),
+            [event.homeTeam?.name, event.awayTeam?.name].filter(Boolean),
           ),
         );
-        const initialCheckState = {};
-        teamNames.forEach((name) => (initialCheckState[name] = false));
-        setCheckedTeams(initialCheckState);
+        setCheckedTeams(
+          Object.fromEntries([...teamNames].map((team) => [team, false])),
+        );
+
+        const statuses = new Set(data.data.map((event) => event.status));
+        setCheckedStatuses(
+          Object.fromEntries([...statuses].map((status) => [status, false])),
+        );
+      })
+      .catch((error) => {
+        console.error('Failed to fetch events:', error);
       });
   }, []);
 
-  const handleCheckboxChange = (teamName) => {
-    setCheckedTeams((prevState) => ({
-      ...prevState,
-      [teamName]: !prevState[teamName],
-    }));
-
-    const activeTeams = {
-      ...checkedTeams,
-      [teamName]: !checkedTeams[teamName],
-    };
-    const activeTeamNames = Object.keys(activeTeams).filter(
-      (name) => activeTeams[name],
-    );
-
-    const filtered = allEvents.filter(
-      (event) =>
-        activeTeamNames.includes(event.homeTeam?.name) ||
-        activeTeamNames.includes(event.awayTeam?.name),
-    );
-
-    setFilteredEvents(activeTeamNames.length > 0 ? filtered : allEvents);
+  const handleCheckboxChange = (type, name) => {
+    if (type === 'team') {
+      setCheckedTeams((prev) => ({ ...prev, [name]: !prev[name] }));
+    } else if (type === 'status') {
+      setCheckedStatuses((prev) => ({ ...prev, [name]: !prev[name] }));
+    }
   };
+
+  useEffect(() => {
+    const filteredByTeam = checkedTeams
+      ? allEvents.filter((event) =>
+          Object.entries(checkedTeams).every(
+            ([team, checked]) =>
+              !checked ||
+              event.homeTeam?.name === team ||
+              event.awayTeam?.name === team,
+          ),
+        )
+      : allEvents;
+
+    const filteredByStatus = checkedStatuses
+      ? filteredByTeam.filter((event) =>
+          Object.entries(checkedStatuses).every(
+            ([status, checked]) => !checked || event.status === status,
+          ),
+        )
+      : filteredByTeam;
+
+    setFilteredEvents(filteredByStatus);
+  }, [checkedTeams, checkedStatuses, allEvents]);
 
   const handleGoBack = () => {
     router.back();
@@ -57,17 +83,35 @@ export default function SchedulesPage() {
   return (
     <div className={styles.schedulesPage}>
       <div className={styles.checkboxContainer}>
-        {Object.keys(checkedTeams).map((teamName) => (
-          <label key={teamName}>
-            <input
-              type="checkbox"
-              checked={checkedTeams[teamName]}
-              onChange={() => handleCheckboxChange(teamName)}
-            />
-            {teamName}
-          </label>
-        ))}
+        <div>
+          <h5> Filter by Team: </h5>
+          {Object.keys(checkedTeams).map((teamName) => (
+            <label key={`teamName-${teamName.id}`}>
+              <input
+                type="checkbox"
+                checked={checkedTeams[teamName]}
+                onChange={() => handleCheckboxChange('team', teamName)}
+              />
+              {teamName}
+            </label>
+          ))}
+        </div>
+
+        <div>
+          <h5> Filter by Status: </h5>
+          {Object.keys(checkedStatuses).map((status) => (
+            <label key={`status-${status.id}`}>
+              <input
+                type="checkbox"
+                checked={checkedStatuses[status]}
+                onChange={() => handleCheckboxChange('status', status)}
+              />
+              {status}
+            </label>
+          ))}
+        </div>
       </div>
+
       <div className={styles.cardsContainer}>
         {filteredEvents.length > 0 ? (
           filteredEvents.map((event) => (
@@ -92,12 +136,10 @@ export default function SchedulesPage() {
           <p>No events to display.</p>
         )}
       </div>
-      <div className={styles.goBackButtonContainer}>
-        <button className={styles.goBackButton} onClick={handleGoBack}>
-          <IoArrowBackCircleOutline />
-          Go back
-        </button>
-      </div>
+
+      <button className={styles.goBackButton} onClick={handleGoBack}>
+        <IoArrowBackCircleOutline className={styles.backIcon} />
+      </button>
     </div>
   );
 }

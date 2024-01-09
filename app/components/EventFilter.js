@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './eventFilter.module.scss';
+import styles from '../../Styles/eventFilter.module.scss';
 
 export default function EventFilter({ setFilteredEvents, allEvents }) {
   const teamNames = [

@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import AddEvent from './addEvent/page.js';
 import Calendar from './Calendar/Calendar.js';
-import EventFilter from './components/EventFilter';
-import NavBar from './components/NavBar';
+import AddEvent from './Components/addEvent/page.js';
+import EventFilter from './Components/EventFilter.js';
 import styles from './page.module.scss';
 
 export default function Home() {
@@ -13,10 +12,18 @@ export default function Home() {
 
   useEffect(() => {
     fetch('/sportData.json')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         setAllEvents(data.data);
         setFilteredEvents(data.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
       });
   }, []);
 
@@ -28,9 +35,6 @@ export default function Home() {
 
   return (
     <div>
-      <div className={styles.navBar}>
-        <NavBar />
-      </div>
       <div className={styles.titleContainer}>
         <h1 className={styles.h1}>MATCH SCHEDULES</h1>
       </div>
@@ -45,7 +49,10 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.Calendar}>
-          <Calendar key={filteredEvents.length} events={filteredEvents} />
+          <Calendar
+            key={`filteredEvents-${filteredEvents.length}`}
+            events={filteredEvents}
+          />
         </div>
       </div>
     </div>

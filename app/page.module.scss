@@ -19,11 +19,11 @@
   width: 100%;
   justify-content: space-between;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .eventForm {
-  margin-top: 50px;
-  padding-top: 100px;
+  padding-top: 10px;
   font-size: 1rem;
   display: flex;
   color: white;
