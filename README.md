@@ -47,6 +47,6 @@
 
 <img src="./public/readmephotos/photo1.png" height="200" width="400">
 <img src="./public/readmephotos/photo2.png" height="200" width="400">
-<img src="./public/readmephotos/photo3.png" height="200" width="200">
+<img src="./public/readmephotos/photo3.png" height="200" width="400">
 
 ###
