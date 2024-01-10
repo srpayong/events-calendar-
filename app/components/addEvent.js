@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import styles from '../../../Styles/addEvent.module.scss';
+import styles from '../../Styles/addEvent.module.scss';
 
 export default function AddEvent({ onAddEvent }) {
   const router = useRouter();

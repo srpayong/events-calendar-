@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Calendar from './Calendar/Calendar.js';
-import AddEvent from './Components/addEvent/page.js';
+import AddEvent from './Components/addEvent.js';
 import EventFilter from './Components/EventFilter.js';
 import styles from './page.module.scss';
 
