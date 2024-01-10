@@ -16,12 +16,15 @@ export default function Home() {
         if (!res.ok) {
           throw new Error(`Failed to fetch: ${res.status}`);
         }
+
         return res.json();
       })
-      .then((data) => {
-        setAllEvents(data.data);
-        setFilteredEvents(data.data);
+
+      .then((sportsData) => {
+        setAllEvents(sportsData.data);
+        setFilteredEvents(sportsData.data);
       })
+
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
@@ -29,6 +32,7 @@ export default function Home() {
 
   const handleAddEvent = (newEvent) => {
     const updatedEvents = [...allEvents, newEvent];
+
     setAllEvents(updatedEvents);
     setFilteredEvents(updatedEvents);
   };

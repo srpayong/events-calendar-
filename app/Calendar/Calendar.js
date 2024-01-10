@@ -44,6 +44,7 @@ export default function Calendar({ events }) {
       );
     }
   };
+
   return (
     <div className={styles.calendarContainer}>
       <ReactCalendar

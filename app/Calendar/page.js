@@ -15,7 +15,7 @@ export default function CalendarPage() {
         }
         return response.json();
       })
-      .then((data) => setEventsData(data.data))
+      .then((responseData) => setEventsData(responseData.data))
       .catch((error) => {
         console.error('There was a problem fetching the events data:', error);
       });
@@ -30,7 +30,6 @@ export default function CalendarPage() {
             <Link href={`/Calendar/${eventDetail.id}`}>
               {eventDetail.homeTeam?.name} vs {eventDetail.awayTeam?.name}
             </Link>
-            /{' '}
           </div>
         );
       })}

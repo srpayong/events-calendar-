@@ -22,12 +22,12 @@ export default function SchedulesPage() {
         }
         return response.json();
       })
-      .then((data) => {
-        setAllEvents(data.data);
-        setFilteredEvents(data.data);
+      .then((eventsResponse) => {
+        setAllEvents(eventsResponse.data);
+        setFilteredEvents(eventsResponse.data);
 
         const teamNames = new Set(
-          data.data.flatMap((event) =>
+          eventsResponse.data.flatMap((event) =>
             [event.homeTeam?.name, event.awayTeam?.name].filter(Boolean),
           ),
         );
@@ -35,7 +35,9 @@ export default function SchedulesPage() {
           Object.fromEntries([...teamNames].map((team) => [team, false])),
         );
 
-        const statuses = new Set(data.data.map((event) => event.status));
+        const statuses = new Set(
+          eventsResponse.data.map((event) => event.status),
+        );
         setCheckedStatuses(
           Object.fromEntries([...statuses].map((status) => [status, false])),
         );
