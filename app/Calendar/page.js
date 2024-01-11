@@ -24,11 +24,11 @@ export default function CalendarPage() {
   return (
     <div>
       <Calendar events={eventsData} />
-      {eventsData.map((eventDetail) => {
+      {eventsData.map((eventData) => {
         return (
-          <div key={`eventDetail-div-${eventDetail.id}`}>
-            <Link href={`/Calendar/${eventDetail.id}`}>
-              {eventDetail.homeTeam?.name} vs {eventDetail.awayTeam?.name}
+          <div key={`eventData-div-${eventData.id}`}>
+            <Link href={`/Calendar/${eventData.id}`}>
+              {eventData.homeTeam?.name} vs {eventData.awayTeam?.name}
             </Link>
           </div>
         );

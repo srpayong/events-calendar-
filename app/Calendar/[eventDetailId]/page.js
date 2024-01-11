@@ -1,4 +1,5 @@
 'use client';
+
 import { useRouter } from 'next/navigation';
 import { IoArrowBackCircleOutline } from 'react-icons/io5';
 import sportData from '../../../public/sportData.json';
@@ -6,6 +7,7 @@ import styles from '../../../Styles/eventDetail.module.scss';
 
 export default function ExpandDetails({ params }) {
   const router = useRouter();
+
   const eventDetail = sportData.data.find(
     (event) => event.id === params.eventDetailId,
   );
@@ -13,6 +15,7 @@ export default function ExpandDetails({ params }) {
   if (!eventDetail) {
     return <div>Event not found in data provided</div>;
   }
+
   const handleGoBack = () => {
     router.back();
   };

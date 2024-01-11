@@ -1,10 +1,10 @@
-'use client';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import styles from '../../Styles/addEvent.module.scss';
 
 export default function AddEvent({ onAddEvent }) {
   const router = useRouter();
+
   const [formData, setFormData] = useState({
     homeTeam: '',
     awayTeam: '',
@@ -12,8 +12,8 @@ export default function AddEvent({ onAddEvent }) {
     timeVenueUTC: '',
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
@@ -28,9 +28,7 @@ export default function AddEvent({ onAddEvent }) {
       homeTeam: { name: formData.homeTeam },
       awayTeam: { name: formData.awayTeam },
     };
-
     onAddEvent(newEvent);
-
     router.push('/');
   };
 

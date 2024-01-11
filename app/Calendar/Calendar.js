@@ -8,8 +8,8 @@ import styles from '../../Styles/calendarPage.module.scss';
 export default function Calendar({ events }) {
   const router = useRouter();
 
-  const handleEventClick = (eventId) => {
-    router.push(`/Calendar/${eventId}`);
+  const handleEventClick = (eventDetailId) => {
+    router.push(`/Calendar/${eventDetailId}`);
   };
 
   const tileContent = ({ date, view }) => {
@@ -18,9 +18,9 @@ export default function Calendar({ events }) {
         isSameDay(new Date(event.dateVenue), date),
       );
 
-      const handleKeyPress = (event, eventId) => {
+      const handleKeyPress = (event, eventDetailId) => {
         if (event.key === 'Enter') {
-          handleEventClick(eventId);
+          handleEventClick(eventDetailId);
         }
       };
 
