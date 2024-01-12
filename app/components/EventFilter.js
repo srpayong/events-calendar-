@@ -3,7 +3,6 @@ import styles from '../../Styles/eventFilter.module.scss';
 
 export default function EventFilter({ setFilteredEvents, allEvents }) {
   const teamNames = [];
-
   allEvents.forEach((event) => {
     if (event.homeTeam && event.homeTeam.name) {
       teamNames.push(event.homeTeam.name);
@@ -14,9 +13,9 @@ export default function EventFilter({ setFilteredEvents, allEvents }) {
   });
 
   const uniqueTeamNames = [];
-  teamNames.forEach((name) => {
-    if (!uniqueTeamNames.includes(name)) {
-      uniqueTeamNames.push(name);
+  teamNames.forEach((teamName) => {
+    if (!uniqueTeamNames.includes(teamName)) {
+      uniqueTeamNames.push(teamName);
     }
   });
 

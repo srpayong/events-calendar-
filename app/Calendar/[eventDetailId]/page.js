@@ -11,7 +11,6 @@ export default function ExpandDetails({ params }) {
   const eventDetail = sportData.data.find(
     (event) => event.id === params.eventDetailId,
   );
-
   if (!eventDetail) {
     return <div>Event not found in data provided</div>;
   }
